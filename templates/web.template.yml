@@ -88,10 +88,9 @@ run:
       cmd:
         - git reset --hard
         - git clean -f
-        - git remote set-branches --add origin master
-        - git pull
-        - git fetch origin $version
-        - git checkout $version
+        - git remote add upstream https://github.com/nexfoundation/discourse.git
+        - git fetch upstream $version
+        - git checkout -b $version upstream/$version
         - mkdir -p tmp/pids
         - mkdir -p tmp/sockets
         - touch tmp/.gitkeep
